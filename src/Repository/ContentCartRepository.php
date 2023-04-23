@@ -39,20 +39,19 @@ class ContentCartRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return ContentCart[] Returns an array of ContentCart objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+        * @return ContentCart[] Returns an array of ContentCart objects
+    */
+    public function findByExampleField($value): array
+    {
+    return $this->createQueryBuilder('c')
+        ->andWhere('c.exampleField = :val')
+        ->setParameter('val', $value)
+        ->setMaxResults(1)
+        ->getQuery()
+        ->getResult()
+    ;
+    }
 
 //    public function findOneBySomeField($value): ?ContentCart
 //    {

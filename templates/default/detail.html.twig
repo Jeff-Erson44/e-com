@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container__detailProduct">
+    <div class="container__detailProduct--info">
+        <h1>{{prodDetail.name}}</h1>
+        <p>{{prodDetail.description|raw|striptags }}</p>
+        <p>{{prodDetail.price}} €</p>
+    </div>
+    <div class="container__detailProduct--img">
+        {% if prodDetail.photo is not null %}
+            <img src="{{ asset('/uploads/'~ prodDetail.photo) }}" />
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
+
+

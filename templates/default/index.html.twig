@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DefaultController!{% endblock %}
+
+{% block body %}
+
+    {% for p in prod %}
+        <a href="{{path('product_detail', {'id':p.id})}}">
+            {% if p.photo is not null %}
+                <img src="{{ asset('/uploads/'~ p.photo) }}" style="max-width: 100px;" />
+            {% endif %}
+            <p>{{p.name}}</p>
+            <p>{{p.price}} €</p>
+            <a href="{{path('productInCart', {'id':p.id})}}">Ajouter au panier</a>
+        </a>
+    {% endfor %}
+
+{% endblock %}
+
+

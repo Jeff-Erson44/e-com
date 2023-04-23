@@ -38,21 +38,20 @@ class CartRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-
-//    /**
-//     * @return Cart[] Returns an array of Cart objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+   /**
+    * @return Cart[] Returns an array of Cart objects
+    */
+    public function findActiveCart($user_id): array
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.user_id = :id')
+            ->andWhere('c.state = 1')
+            ->setParameter('id', $user_id)
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 
 //    public function findOneBySomeField($value): ?Cart
 //    {
