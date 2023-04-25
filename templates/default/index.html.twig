@@ -4,16 +4,28 @@
 
 {% block body %}
 
+<div class="container__card">
     {% for p in prod %}
-        <a href="{{path('product_detail', {'id':p.id})}}">
-            {% if p.photo is not null %}
-                <img src="{{ asset('/uploads/'~ p.photo) }}" style="max-width: 100px;" />
-            {% endif %}
-            <p>{{p.name}}</p>
-            <p>{{p.price}} €</p>
-            <a href="{{path('productInCart', {'id':p.id})}}">Ajouter au panier</a>
-        </a>
+        <div class="card">
+            <a href="{{path('product_detail', {'id':p.id})}}">
+                {% if p.photo is not null %}
+                <div class="card__img">
+                    <img src="{{ asset('/uploads/'~ p.photo) }}"/>
+                </div>
+                {% endif %}
+                <div class="card__info">
+                    <p>{{p.name}}</p>
+                    <div class="card__info--price">
+                        <p>prix : </p>
+                        <p>{{p.price}} €</p>
+                    </div>
+                    <a href="{{path('productInCart', {'id':p.id})}}">
+                        Ajouter au panier</a>
+                    </a>
+                </div>
+        </div>
     {% endfor %}
+</div>
 
 {% endblock %}
 
