@@ -2,19 +2,57 @@
 nav{
     display: flex;
     justify-content: space-between;
+    padding: 10px 20px;
 }
 li img{
     width: 50px;
 }
-
+ul{
+    display: flex;
+    gap: 8px;
+}
+li a{
+    text-decoration: none;
+    color: black;
+    font-family: sans-serif;
+}
 /********  ACCUEIL *******/
+
+
 
 
 
 /********  DETAIL  *******/
 .container__detailProduct{
-    background: red;
-    width: 100%;
-    height: 20%;
     display: flex;
+    max-width: 100%;
+}
+.container__detailProduct--info{
+    width: 50%!important;
+    padding: 5%;
+}
+.container__detailProduct--info h1{
+    font-size: 2rem;
+    font-family: sans-serif;
+    margin-bottom: 50px;
+}
+.container__detailProduct--img{
+    display: flex;
+    justify-content: center;
+}
+.container__detailProduct--img img{
+    width: 50%!important;
+    height: 50%!important;
+} 
+.container__detailProduct--action{
+    width: 50%!important;
+    padding: 10% 5%;
+	font-family: sans-serif;
+}
+.container__detailProduct--action p:first-child{
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+.container__detailProduct--action p:last-child{
+    margin-top: 50px;
 }

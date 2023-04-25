@@ -44,12 +44,12 @@ class CartRepository extends ServiceEntityRepository
     public function findActiveCart($user_id): array
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.user_id = :id')
-            ->andWhere('c.state = 1')
+            ->andWhere('c.user = :id')
+            ->andWhere('c.state = 0')
             ->setParameter('id', $user_id)
             ->setMaxResults(1)
             ->getQuery()
-            ->getOneOrNullResult()
+            ->getResult()
         ;
     }
 

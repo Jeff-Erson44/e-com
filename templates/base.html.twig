@@ -26,13 +26,10 @@
                     </li>
                 </ul>
                 <ul>
-                    <li>
-                        <a>Nos produits</a>
-                    </li>
-                    {% if is_granted('éROLE_ADMIN')%}
-                    <li>
-                        <a href="/admin">Dashboard Admin</a>
-                    </li>
+                    {% if is_granted('ROLE_ADMIN')%}
+                        <li>
+                            <a href="/admin">Dashboard Admin</a>
+                        </li>
                     {% endif %}
                 </ul>
                 <ul>

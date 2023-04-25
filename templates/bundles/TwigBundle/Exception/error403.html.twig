@@ -1,0 +1,18 @@
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+    <link rel="stylesheet" href="{{asset('css/reset.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/error.css')}}" />
+{% endblock %}
+
+{% block body %}
+
+    <img src="/img/403.png">
+
+    <div class="action">
+        <p>Accès interdit</p>
+        <a class="button__primary" href="/">Retour</a>
+    </div>
+
+
+
+{% endblock %}

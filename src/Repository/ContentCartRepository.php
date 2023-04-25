@@ -42,15 +42,18 @@ class ContentCartRepository extends ServiceEntityRepository
     /**
         * @return ContentCart[] Returns an array of ContentCart objects
     */
-    public function findByExampleField($value): array
+    public function findProductInCart($productId, $cartId): array
     {
-    return $this->createQueryBuilder('c')
-        ->andWhere('c.exampleField = :val')
-        ->setParameter('val', $value)
-        ->setMaxResults(1)
+        return $this->createQueryBuilder('c')
+        ->andWhere('c.cart = :cartId')
+        ->andWhere('c.product = :productId')
+        ->setParameter('cartId', $cartId)
+        ->setParameter('productId', $productId)
+        ->orderBy('c.id', 'ASC')
+        ->setMaxResults(10)
         ->getQuery()
         ->getResult()
-    ;
+        ;
     }
 
 //    public function findOneBySomeField($value): ?ContentCart

@@ -5,13 +5,16 @@
 <div class="container__detailProduct">
     <div class="container__detailProduct--info">
         <h1>{{prodDetail.name}}</h1>
-        <p>{{prodDetail.description|raw|striptags }}</p>
-        <p>{{prodDetail.price}} €</p>
+        <div class="container__detailProduct--img">
+            {% if prodDetail.photo is not null %}
+                <img src="{{ asset('/uploads/'~ prodDetail.photo) }}" />
+            {% endif %}
+        </div>
     </div>
-    <div class="container__detailProduct--img">
-        {% if prodDetail.photo is not null %}
-            <img src="{{ asset('/uploads/'~ prodDetail.photo) }}" />
-        {% endif %}
+    <div class="container__detailProduct--action">
+        <p>{{prodDetail.price}}€</p>
+        <a href="{{path('productInCart', {'id':prodDetail.id})}}"class="button__primary">Ajouter au panier</a>
+        <p>{{prodDetail.description|raw|striptags }}</p>
     </div>
 </div>
 
