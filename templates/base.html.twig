@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
@@ -36,17 +38,17 @@
                 <ul>
                 {% if app.user %}
                     <li>
-                        <a href="/user">Mon compte</a>
+                        <a href={{ path('app_userInfo') }}><i class="fa-solid fa-house"></i>Mon compte</a>
                     </li>
                     <li>
-                        <a href="/logout">Se déconnecter</a>
+                        <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i>Se déconnecter</a>
                     </li>
                 {% else %}
                     <li>
-                        <a href="/login">Se connecter</a>
+                        <a href="/login"><i class="fa-solid fa-user"></i>Se connecter</a>
                     </li>
                     <li>
-                        <a href="/register">Créer un compte</a>
+                        <a href="/register"><i class="fa-solid fa-user-plus"></i>Créer un compte</a>
                     </li>
                 {% endif %}
                 </ul>

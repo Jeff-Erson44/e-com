@@ -11,12 +11,24 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Security\Core\Security;
 
 class RegistrationFormType extends AbstractType
 {
+
+    private $security;
+
+    public function __construct(Security $security)
+    {
+        $this->security = $security;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder
+
+        $user = $this->security->getUser();
+        if(!$user){
+            $builder
             ->add('email')
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
@@ -42,8 +54,15 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
-            ])
-        ;
+            ]);
+        }else{
+            $builder
+            ->add('email')
+            ->add('name')                       
+            ->add('firstname')
+            ->add('city')
+        ;  
+        }
     }
 
     public function configureOptions(OptionsResolver $resolver): void

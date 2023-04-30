@@ -19,10 +19,13 @@
                         <p>prix : </p>
                         <p>{{p.price}} €</p>
                     </div>
-                    <a href="{{path('productInCart', {'id':p.id})}}">
-                        Ajouter au panier</a>
-                    </a>
+                    {% if app.user %}
+                        <button onclick='addInCart({{p.id}})'>
+                            Ajouter au panier
+                        </button>
+                    {% endif %}
                 </div>
+                </a>
         </div>
     {% endfor %}
 </div>
@@ -30,3 +33,22 @@
 {% endblock %}
 
 
+{% block javascripts %}
+
+<script>
+    async function addInCart(id){
+        $.ajax({
+            method: "POST",
+            url: "/cart/" + id,
+            async: true,
+        })
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error =>{
+                console.log(error);
+            })
+    }
+</script>
+
+{% endblock %}

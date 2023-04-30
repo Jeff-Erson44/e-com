@@ -13,7 +13,9 @@
     </div>
     <div class="container__detailProduct--action">
         <p>{{prodDetail.price}}€</p>
-        <a href="{{path('productInCart', {'id':prodDetail.id})}}"class="button__primary">Ajouter au panier</a>
+            {% if app.user %}
+                <a href="{{path('productInCart', {'id':prodDetail.id})}}"class="button__primary">Ajouter au panier</a>
+            {% endif %}
         <p>{{prodDetail.description|raw|striptags }}</p>
     </div>
 </div>

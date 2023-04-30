@@ -4,6 +4,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+    stripe_sk: 'sk_test_51MytbYLSktWxPgTLzUBOeqm1poFqmBXz5x0soTh2Vd9dF0hjLkkuBgiZhAMzuwJoIpLbtbxkzDZFK7UJcI1HF8bO00tRikoDmz'
 
 services:
     # default configuration for services in *this* file

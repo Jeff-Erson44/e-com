@@ -53,9 +53,10 @@ class DefaultController extends AbstractController
                     if($productInCart){
                         $content_cart = $productInCart;
                         // alors on ajoute à la quantite
-                        $quantity = $cart->getQuantity() +1;
-                        $cart->setQuantity($quantity);
-                        
+                        $quantity = $content_cart->getQuantity();
+                        $content_cart->setQuantity($quantity +1);
+                        $em->persist($content_cart);
+                        $em->flush();
                     }else{
                         $content_cart = new ContentCart();
                         $content_cart->setQuantity(1);
@@ -83,9 +84,6 @@ class DefaultController extends AbstractController
                     $em->persist($content_cart);
                     $em->flush();
                 }
-                //     // on calcul le prix du panier (fonction dans repo)
-                //     // calcul du nombre d'article du panier (fonction dans repo)
-                //     // return value 
             }
         } else {
             // flash

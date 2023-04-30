@@ -38,18 +38,17 @@ class CartRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-   /**
+    /**
     * @return Cart[] Returns an array of Cart objects
     */
-    public function findActiveCart($user_id): array
+    public function findActiveCart($user_id): ?Cart
     {
         return $this->createQueryBuilder('c')
             ->andWhere('c.user = :id')
             ->andWhere('c.state = 0')
             ->setParameter('id', $user_id)
-            ->setMaxResults(1)
             ->getQuery()
-            ->getResult()
+            ->getOneOrNullResult()
         ;
     }
 
