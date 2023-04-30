@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+    {% extends 'base.html.twig' %}
 
 {% block body %}
 
@@ -14,12 +14,32 @@
     <div class="container__detailProduct--action">
         <p>{{prodDetail.price}}€</p>
             {% if app.user %}
-                <a href="{{path('productInCart', {'id':prodDetail.id})}}"class="button__primary">Ajouter au panier</a>
+                <a onclick="addInCart ({{prodDetail.id}})" class="button__primary">Ajouter au panier</a>
             {% endif %}
         <p>{{prodDetail.description|raw|striptags }}</p>
     </div>
 </div>
 
+
+{% endblock %}
+
+{% block javascripts %}
+
+<script>
+    async function addInCart(id){
+        $.ajax({
+            method: "POST",
+            url: "/cart/" + id,
+            async: true,
+        })
+            .then(response => {
+                console.log(response);
+            })
+            .catch(error =>{
+                console.log(error);
+            })
+    }
+</script>
 
 {% endblock %}
 

@@ -17,14 +17,12 @@ class CartController extends AbstractController
         $user = $this->getUser();
         $cart = $em->getRepository(Cart::class)->findActiveCart($user);
         $cartUser = $em->getRepository(ContentCart::class)->findByCart($cart);
-
         $total = 0;
 
         foreach($cartUser as $cu){
             $quantity = $cu->getQuantity();
             $product = $cu->getProduct()->first();
             $prix = $product->getPrice();
-            
             $ccTotal = $quantity * $prix;
             $total += $ccTotal;
         }

@@ -25,6 +25,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background: rgb(19, 19, 19);
 }
 ol, ul {
 	list-style: none;
@@ -45,7 +46,7 @@ a{
 	text-decoration: none;
 }
 a:visited{
-	color: black!important;
+	color: white!important;
 }
 .button__primary{
 	padding: 10px 15px;
@@ -53,8 +54,4 @@ a:visited{
 	border-radius: 10px;
 	cursor: pointer;
 	transition: .5s ease-in-out;
-}
-.button__primary:hover{
-	background: black;
-	color: white!important;
 }

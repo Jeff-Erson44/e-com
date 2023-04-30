@@ -13,15 +13,14 @@
                     <img src="{{ asset('/uploads/'~ p.photo) }}"/>
                 </div>
                 {% endif %}
-                </a>
+                </a>    
                 <div class="card__info">
                     <p>{{p.name}}</p>
                     <div class="card__info--price">
-                        <p>prix : </p>
-                        <p>{{p.price}} €</p>
+                   <p>{{ p.price|number_format(2, ',', ' ') }} €</p>
                     </div>                
                     {% if app.user %}
-                        <button onclick='addInCart({{p.id}})'>
+                        <button class='button__primary' onclick='addInCart({{p.id}})'>
                             Ajouter au panier
                         </button>
                     {% endif %}
