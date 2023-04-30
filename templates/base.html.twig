@@ -31,21 +31,21 @@
                 </ul>
                 <ul>
                     <li>
-                        <a href="{{ path('app_cart') }}">{{ 'nav.myCart'|trans() }}</a>
+                        <a href="{{ path('app_cart') }}">Mon panier</a>
                     </li>
                     {% if is_granted('ROLE_ADMIN')%}
                         <li>
-                            <a href="/admin">{{ 'nav.myDash'|trans() }}</a>
+                            <a href="/admin">Dashboard Admin</a>
                         </li>
                     {% endif %}
                 </ul>
-                <ul> 
+                <ul>
                 {% if app.user %}
                     <li>
-                        <a href="{{ path('app_userInfo') }}"><i class="fa-solid fa-house"></i>{{ 'nav.myAcc'|trans() }}</a>
+                        <a href="{{ path('app_userInfo') }}"><i class="fa-solid fa-house"></i>Mon compte</a>
                     </li>
                     <li>
-                        <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i>{{ 'nav.myLogout'|trans() }}</a>
+                        <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i>Se déconnecter</a>
                     </li>
                 {% else %}
                     <li>

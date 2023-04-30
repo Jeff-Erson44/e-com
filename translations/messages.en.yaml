@@ -1,14 +1,13 @@
+Name : Name
+Firtsname : Firtsname
+City : City
+Email : Email
+
 nav: 
-  myCart: My cart
-  myDash: Dashboard
-  myAcc: My Account
+  myCart : My Cart
+  myDash : Dashboard
+  myAcc : My Account
   myLogout : Logout
 
-product: 
+product:
   add: Add to cart
-
-
-Name: Name
-Firstname: Firtsname
-City : City
-Email: Email

@@ -1,15 +1,15 @@
-nav: 
-  myCart: Mon panier
-  myDash: Tableau de bord
-  myAcc: Mon compte
-  myLogout : Se déconneter
-
-
-product: 
-  add: Ajouter au panier
-
-
-Name: Nom
-Firstname: Prénom
+Name : Nom
+Firtsname : Prénom
 City : Ville
-Email: Email
+Email : Email
+
+
+nav: 
+  myCart : Mon panier
+  myDash : Tableau de bord
+  myAcc : Mon Compte
+  myLogout : Se déconnecter
+
+
+product:
+  add: Ajouter au panier

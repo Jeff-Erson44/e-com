@@ -14,7 +14,7 @@
     <div class="container__detailProduct--action">
         <p>{{prodDetail.price}}€</p>
             {% if app.user %}
-                <a onclick="addInCart ({{prodDetail.id}})" class="button__primary">{{ 'product.add'|trans()}}</a>
+                <a onclick="addInCart ({{prodDetail.id}})" class="button__primary">{{ "product.add"|trans()}}</a>
             {% endif %}
         <p>{{prodDetail.description|raw|striptags }}</p>
     </div>
