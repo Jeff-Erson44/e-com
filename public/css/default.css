@@ -20,7 +20,29 @@ li a{
 
 p{
     font-family: sans-serif;
+    color: white!important;
+}
+
+form{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 30%;
+}
+form h1{
     color: white;
+    margin-bottom: 30px;
+}
+label {
+    color: white;
+    width: 100%;
+    margin-bottom: 15px;
+}
+input{
+    margin-bottom: 15px;
+    width: 300px;
+}
+form button{
+    display: inline;
 }
 .container__card{
     background: rgb(19, 19, 19);

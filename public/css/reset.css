@@ -55,3 +55,9 @@ a:visited{
 	cursor: pointer;
 	transition: .5s ease-in-out;
 }
+i{
+	margin-right: 8px;
+}
+th, td{
+	color: white;
+}

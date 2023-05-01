@@ -19,11 +19,8 @@
                     <div class="card__info--price">
                    <p>{{ p.price|number_format(2, ',', ' ') }} €</p>
                     </div>                
-                    {% if app.user %}
-                        <button class='button__primary' onclick='addInCart({{p.id}})'>
-                            Ajouter au panier
-                        </button>
-                    {% endif %}
+                    <button class='button__primary' onclick='addInCart({{p.id}})'><i class="fas fa-cart-shopping"></i></i>       
+                    </button>
                 </div>
         </div>
     {% endfor %}
