@@ -7,26 +7,15 @@
 <h1>Mon panier</h1>
 
 <table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>quantié</th>
-            <th>prix</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            {% for cu in cartUser %}
-            {% set product = cu.product[0] %}
-            {% set totalRow = product.price * cu.quantity %}
-            <td>{{ product.name }}</td>
-            <td>{{ cu.quantity }}</td>
-            <td>{{ totalRow }}</td>
-        {% endfor %}
-        </tr>
-    </tbody>
+
+
 </table>
-    
+    {% for cu in cartUser %}
+        {% set product = cu.product[0] %}
+        {% set totalRow = product.price * cu.quantity %}
+        <p>{{ product.name }}</p>
+        <p>{{ totalRow }}</p>
+    {% endfor %}
 
 
     <a href="{{ path('app_stripe')}}"> 

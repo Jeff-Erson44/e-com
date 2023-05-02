@@ -1,0 +1,14 @@
+nav: 
+  myCart: My cart
+  myDash: Dashboard
+  myAcc: My Account
+  myLogout : Logout
+
+product: 
+  add: Add to cart
+
+
+Name: Name
+Firstname: Firtsname
+City : City
+Email: Email
