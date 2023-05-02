@@ -1,37 +1,28 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CartController!{% endblock %}
+{% block title %}Mon panier{% endblock %}
 
 {% block body %}
 
 <h1>Mon panier</h1>
 
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>quantié</th>
-            <th>prix</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            {% for cu in cartUser %}
-            {% set product = cu.product[0] %}
-            {% set totalRow = product.price * cu.quantity %}
-            <td>{{ product.name }}</td>
-            <td>{{ cu.quantity }}</td>
-            <td>{{ totalRow }}</td>
+    <div class='container'>
+        {% for cu in cartUser %}
+            <div class='container__cart'>
+                {% set product = cu.product[0] %}
+                {% set totalRow = product.price * cu.quantity %}
+                <div class='container__cart--item'>
+                    <h2>{{ product.name }}</h2>
+                     <img src="{{ asset('/uploads/'~ product.photo)}}" style="max-width: 200px"/>
+                    <p>qunatité: {{ cu.quantity }}</p>
+                </div>
+                
+            </div>
         {% endfor %}
-        </tr>
-    </tbody>
-</table>
-    
-
-
-    <a href="{{ path('app_stripe')}}"> 
-        PAIE CHIEN
+    </div>
+        <p class='total'>Prix Total: {{ total }}€</p>
+        <a class="button__primary paid" href="{{ path('app_stripe')}}"> 
+        Payer
     </a>
 
-    <p>yarline price: {{ total }}€</p>
 {% endblock %}

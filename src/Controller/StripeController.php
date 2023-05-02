@@ -41,13 +41,15 @@ class StripeController extends AbstractController
                 'paymentIntent' => $paymentIntent,
                 'clientSecret' => $paymentIntent->client_secret,
             ];
-        
-            // echo json_encode($output);
+
             return new JsonResponse($output);
+
         } catch (\Error $e) {
             // http_response_code(500);
             // echo json_encode(['error' => $e->getMessage()]);
             return new JsonResponse(['error' => $e->getMessage()], 500);
         }
+            return $this->redirectToRoute('app_userInfo');
+
     }
 }

@@ -5,3 +5,28 @@ h1{
     font-family: sans-serif;
     margin-bottom: 50px;
 }
+.container{
+    display: flex;
+    padding: 0 15%;
+    gap: 50px;
+}
+.container__cart{
+    margin-bottom: 50px;
+}
+.container__cart h2{
+    color: white;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+.container__cart--item img{
+    margin-bottom: 15px;
+}
+.total{
+    text-align: end;
+    margin-right: 5%;
+}
+.paid{
+    display: flex;
+    width: fit-content;
+    justify-content: flex-end;
+}

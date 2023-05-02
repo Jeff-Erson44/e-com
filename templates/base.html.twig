@@ -31,21 +31,21 @@
                 </ul>
                 <ul>
                     <li>
-                        <a href="{{ path('app_cart') }}">Mon panier</a>
+                        <a href="{{ path('app_cart') }}">{{ "nav.myCart"|trans()}}</a>
                     </li>
                     {% if is_granted('ROLE_ADMIN')%}
                         <li>
-                            <a href="/admin">Dashboard Admin</a>
+                            <a href="/admin">{{ "nav.myDash"|trans()}}</a>
                         </li>
                     {% endif %}
                 </ul>
                 <ul>
                 {% if app.user %}
                     <li>
-                        <a href="{{ path('app_userInfo') }}"><i class="fa-solid fa-house"></i>Mon compte</a>
+                        <a href="{{ path('app_userInfo') }}"><i class="fa-solid fa-house"></i>{{ 'nav.myAcc'|trans()}}</a>
                     </li>
                     <li>
-                        <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i>Se déconnecter</a>
+                        <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i>{{ 'nav.myLogout'|trans()}}</a>
                     </li>
                 {% else %}
                     <li>
@@ -59,6 +59,13 @@
             </nav>
         </header>
         {% block body %}
+        {% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="flash-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
         
         
         {% endblock %}
